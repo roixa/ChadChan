@@ -26,5 +26,9 @@ class MainActivity : BaseSingleFragmentActivity<MainViewModel, ActivityMainBindi
         setFragment(ThreadListFragment::class.java)
     }
 
+    override fun configureToolbar(defaultToolbarType: ToolbarType.Builder): ToolbarType.Builder {
+        return defaultToolbarType.setNavigationIcon()
+    }
+
 }
 
