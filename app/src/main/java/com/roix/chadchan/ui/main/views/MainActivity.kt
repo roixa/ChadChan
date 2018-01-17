@@ -6,6 +6,7 @@ import com.roix.chadchan.databinding.ActivityMainBinding
 import com.roix.chadchan.ui.common.activities.BaseSingleFragmentActivity
 import com.roix.chadchan.ui.common.view.ToolbarType
 import com.roix.chadchan.ui.main.viewmodels.MainViewModel
+import com.roix.chadchan.ui.thread_list.views.ThreadListFragment
 
 /**
  * Created by roix template
@@ -19,6 +20,11 @@ class MainActivity : BaseSingleFragmentActivity<MainViewModel, ActivityMainBindi
     override fun getToolbar(): Toolbar? = binding.toolbar!!.tb
 
     override fun getLayoutId(): Int = R.layout.activity_main
+
+    override fun setupUi() {
+        super.setupUi()
+        setFragment(ThreadListFragment::class.java)
+    }
 
 }
 
