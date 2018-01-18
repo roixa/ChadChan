@@ -3,11 +3,12 @@ package com.roix.chadchan.ui.common.view
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.ImageView
+import com.facebook.drawee.view.SimpleDraweeView
 
 /**
  * Created by roix on 18.01.2018.
  */
-class SquareImageView : ImageView {
+class SquareImageView : SimpleDraweeView {
 
     constructor(context: Context) : super(context) {}
 

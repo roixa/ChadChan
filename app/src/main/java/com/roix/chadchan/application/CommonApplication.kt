@@ -1,6 +1,7 @@
 package com.roix.chadchan.application
 
 import android.app.Application
+import com.facebook.drawee.backends.pipeline.Fresco
 import com.roix.chadchan.BuildConfig
 import com.roix.chadchan.FactoryRegistry
 import com.roix.chadchan.MemberInjectorRegistry
@@ -31,5 +32,7 @@ class CommonApplication : Application() {
         val appScope = Toothpick.openScope(this)
         appScope.installModules(SmoothieApplicationModule(this), ApplicationModule(this))
         appScope.bindScopeAnnotation(ApplicationScope::class.java)
+        Fresco.initialize(this)
+
     }
 }

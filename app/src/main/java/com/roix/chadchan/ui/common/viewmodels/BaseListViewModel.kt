@@ -41,6 +41,7 @@ abstract class BaseListViewModel<Item> : BaseLifecycleViewModel() {
             addItemDecoration(GridDividerDecorator.createDefault(context))
             addOnScrollListener(PaginationScrollListener(manager))
             swipeToRefreshLayout?.setOnRefreshListener(SwipeToRefreshListListener())
+            setHasFixedSize(false)
         }
     }
 
