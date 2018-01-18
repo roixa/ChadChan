@@ -16,7 +16,7 @@ class ThreadListInteractor : IThreadListInteractor {
 
     @Inject lateinit var serverRepository: ServerRepository
 
-    override fun loadItems(page: Int): Single<List<ThreadItem>> = Single.never()
+    override fun loadItems(page: Int): Single<List<ThreadItem>> = serverRepository.getThreads(page)
 
 
 }

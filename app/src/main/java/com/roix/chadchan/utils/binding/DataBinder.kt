@@ -6,8 +6,13 @@ import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
 import android.support.v4.content.ContextCompat
 import android.support.v4.widget.SwipeRefreshLayout
+import android.text.Html
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
+import com.roix.chadchan.BuildConfig
+import com.roix.chadchan.data.models.FileItem
 import com.roix.chadchan.ui.common.viewmodels.BaseListViewModel
 import com.squareup.picasso.Picasso
 
@@ -29,6 +34,24 @@ fun setSrcVector(imageView: ImageView, @DrawableRes res: Int) {
 fun setImageUrl(imageView: ImageView, url: String) {
     Picasso.with(imageView.context).load(url).into(imageView)
 }
+
+@BindingAdapter("bind:imageUrlList")
+fun setImageUrlList(imageView: ImageView, files: List<FileItem>?) {
+    Log.d("boux","files null"+ (files==null).toString())
+    if (files != null && !files.isEmpty()) {
+        Log.d("boux","files size"+ (files.size).toString())
+        Log.d("boux","files url "+ (BuildConfig.SERVER_ENDPOINT+files[0].thumbnail))
+
+        Picasso.with(imageView.context).load(BuildConfig.SERVER_ENDPOINT+files[0].thumbnail).into(imageView)
+    }
+}
+
+
+@BindingAdapter("bind:htmlText")
+fun setImageUrl(textView: TextView, text: String) {
+    textView.setText(Html.fromHtml(text))
+}
+
 
 @BindingAdapter("bind:refreshing")
 fun setSrcCompatRefreshing(layout: SwipeRefreshLayout, state: BaseListViewModel.StateList) {

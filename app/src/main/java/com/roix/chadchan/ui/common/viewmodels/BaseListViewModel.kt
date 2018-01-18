@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.roix.chadchan.buissness.common.IBaseListInteractor
 import com.roix.chadchan.ui.common.adapters.BaseObservableAdapter
+import com.roix.chadchan.ui.common.view.GridDividerDecorator
 import io.reactivex.Single
 
 /**
@@ -37,6 +38,7 @@ abstract class BaseListViewModel<Item> : BaseLifecycleViewModel() {
             val manager = LinearLayoutManager(context)
             layoutManager = manager
             adapter = baseAdapter
+            addItemDecoration(GridDividerDecorator.createDefault(context))
             addOnScrollListener(PaginationScrollListener(manager))
             swipeToRefreshLayout?.setOnRefreshListener(SwipeToRefreshListListener())
         }

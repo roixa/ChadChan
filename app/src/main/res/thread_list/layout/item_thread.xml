@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -8,10 +9,32 @@
             name="item"
             type="com.roix.chadchan.data.models.ThreadItem" />
     </data>
-
-    <android.support.constraint.ConstraintLayout
+    <android.support.v7.widget.CardView
+        style="@style/CardView.Light.Default"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                app:htmlText="@{item.comment}"
+                 />
+
+            <com.roix.chadchan.ui.common.view.SquareImageView
+                android:adjustViewBounds="true"
+                android:minHeight="@dimen/dp1"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:imageUrlList="@{item.files}"
+                 />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
 </layout>
